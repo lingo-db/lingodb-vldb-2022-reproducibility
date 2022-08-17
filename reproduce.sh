@@ -44,8 +44,8 @@ docker run -v $PWD/plots:/output -it r-plot /bin/bash -c "Rscript /plot-scripts/
 docker run -v $PWD/plots:/output -it r-plot /bin/bash -c "Rscript /plot-scripts/plot-qopt-locs.r"
 
 
-docker run --privileged -it mlirdb-repr /bin/bash -c "/build/mlirdb/mlir-db-opt test/lit/pytorch/linear-regression.mlir" > results/linear-regression.mlir
-docker run --privileged -it mlirdb-repr /bin/bash -c "/build/mlirdb/mlir-db-opt --torch-backend-to-linalg-on-tensors-backend-pipeline --canonicalize --inline --scf-bufferize --linalg-bufferize --refback-munge-memref-copy --func-bufferize --arith-bufferize --tensor-bufferize -finalizing-bufferize --refback-insert-rng-globals --convert-linalg-to-affine-loops --affine-loop-fusion --affine-loop-unroll=\"unroll-full unroll-num-reps=3\" --affine-scalrep --canonicalize --lower-affine --canonicalize  --simplify-memrefs --db-simplify-to-arith --simplify-arithmetics --canonicalize  -symbol-privatize=\"exclude=main\" --symbol-dce test/lit/pytorch/linear-regression.mlir" > results/linear-regression-optimized.mlir
+docker run --privileged -it lingodb-repr /bin/bash -c "/build/lingodb/mlir-db-opt test/lit/pytorch/linear-regression.mlir" > results/linear-regression.mlir
+docker run --privileged -it lingodb-repr /bin/bash -c "/build/lingodb/mlir-db-opt --torch-backend-to-linalg-on-tensors-backend-pipeline --canonicalize --inline --scf-bufferize --linalg-bufferize --refback-munge-memref-copy --func-bufferize --arith-bufferize --tensor-bufferize -finalizing-bufferize --refback-insert-rng-globals --convert-linalg-to-affine-loops --affine-loop-fusion --affine-loop-unroll=\"unroll-full unroll-num-reps=3\" --affine-scalrep --canonicalize --lower-affine --canonicalize  --simplify-memrefs --db-simplify-to-arith --simplify-arithmetics --canonicalize  -symbol-privatize=\"exclude=main\" --symbol-dce test/lit/pytorch/linear-regression.mlir" > results/linear-regression-optimized.mlir
 
 #todo
 

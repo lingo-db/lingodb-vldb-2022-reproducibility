@@ -9,5 +9,5 @@ pushd noisepage
 popd
 git clone https://github.com/lingo-db/lingo-db.git lingodb
 pushd lingodb
-    git checkout 2c70df0424710d128d2d1411721d41ef37ad0f16
+    git checkout 1c39138ba34951b2ab8a60ee585bc82870ae5db9
 popd

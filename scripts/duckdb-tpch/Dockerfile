@@ -1,4 +1,4 @@
-FROM ubuntu:impish AS baseimg
+FROM ubuntu AS baseimg
 COPY duckdb /duckdb
 WORKDIR /duckdb
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update
